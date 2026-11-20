@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MILLIY OLOV 🔥 — Milliy Taomlar Restorani</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* =====================================================================
+       MILLIY OLOV 🔥 — Qora (#0a0807), Olovli Qizil (#e11d2b / #ff3b1f)
+       va Oltinrang (#f5b82e / #ffd166) Dizayn Tizimi
+       ===================================================================== */
+    :root {
+      --bg-obsidian: #0a0807;
+      --bg-charcoal: #130f0e;
+      --bg-card: #1a1412;
+      --red-flame: #e11d2b;
+      --red-ember: #ff3b1f;
+      --gold-royal: #f5b82e;
+      --gold-bright: #ffd166;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: #f6f3ee;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-display {
+      font-family: 'Cinzel', 'Inter', serif;
+    }
+
+    /* Milliy naqshli hashamatli fon */
+    .luxury-flame-bg {
+      background-color: var(--bg-obsidian);
+      background-image:
+        radial-gradient(circle at 14% 16%, rgba(225, 29, 43, 0.14) 0%, transparent 46%),
+        radial-gradient(circle at 86% 14%, rgba(245, 184, 46, 0.12) 0%, transparent 44%),
+        radial-gradient(rgba(245, 184, 46, 0.07) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 24px 24px;
+    }
+
+    .hero-glow-layer {
+      position: absolute;
+      top: -75px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(820px, 95vw);
+      height: 360px;
+      background: radial-gradient(circle, rgba(255, 59, 31, 0.25) 0%, rgba(245, 184, 46, 0.12) 48%, transparent 72%);
+      filter: blur(56px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Oltinrang gradyent matn */
+    .gold-gradient {
+      background: linear-gradient(135deg, #ffd166 0%, #f5b82e 52%, #c98a12 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Olovli qizil va oltin chegara */
+    .flame-border-grad {
+      background: linear-gradient(135deg, #ff3b1f 0%, #f5b82e 50%, #991b1b 100%);
+    }
+
+    @keyframes flameBannerPulse {
+      0%, 100% {
+        box-shadow: 0 12px 32px -8px rgba(225, 29, 43, 0.45), 0 0 20px rgba(245, 184, 46, 0.22);
+      }
+      50% {
+        box-shadow: 0 18px 42px -6px rgba(245, 184, 46, 0.48), 0 0 30px rgba(255, 59, 31, 0.36);
+      }
+    }
+
+    .promo-banner-pulse {
+      animation: flameBannerPulse 3.2s infinite ease-in-out;
+    }
+
+    /* Taom kartochkasi */
+    .food-card {
+      background-color: var(--bg-card);
+      border: 1px solid rgba(245, 184, 46, 0.22);
+      transition: transform 0.26s ease, border-color 0.26s ease, box-shadow 0.26s ease;
+    }
+
+    .food-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 209, 102, 0.72);
+      box-shadow: 0 18px 36px -14px rgba(0, 0, 0, 0.88), 0 0 22px rgba(245, 184, 46, 0.14);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-obsidian);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2b211e;
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-royal);
+    }
+  </style>
+</head>
+<body class="bg-[#0a0807] text-[#f6f3ee] luxury-flame-bg antialiased selection:bg-[#f5b82e] selection:text-[#0a0807]">
+
+  <!-- ==================== TOAST BILDIRISHNOMALAR ==================== -->
+  <div id="toast-stack" class="fixed bottom-5 right-5 z-[120] flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!-- ==================== YUQORI TEZKOR PANEL ==================== -->
+  <div class="bg-gradient-to-r from-[#5a0b12] via-[#e11d2b] to-[#5a0b12] text-white text-xs sm:text-sm py-2 px-4 border-b border-[#f5b82e]/35">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-medium min-w-0">
+        <span class="bg-[#ffd166] text-[#0a0807] font-extrabold px-2 py-0.5 rounded-full text-[11px] uppercase shrink-0">Aksiya</span>
+        <span id="topbar-promo-text" class="truncate">🔥 2 TA OSH OLING — NON VA CHOY BEPUL! (Avtomatik 0 so‘m)</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <a id="topbar-phone-link" href="tel:+998901234567" class="flex items-center gap-1.5 font-bold text-[#ffd166] hover:underline">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span id="topbar-phone-text">+998 90 123 45 67</span>
+        </a>
+        <span class="hidden md:inline text-white/40">|</span>
+        <span class="hidden md:inline text-amber-100/90"><i class="fa-regular fa-clock text-[#ffd166] mr-1"></i>09:00 – 23:30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER VA MILLIY OLOV 🔥 LOGOTIPI ==================== -->
+  <header id="bosh-sahifa" class="sticky top-0 z-40 bg-[#0d0a09]/92 backdrop-blur-xl border-b border-[#f5b82e]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap lg:flex-nowrap items-center justify-between gap-3">
+      <!-- MILLIY OLOV 🔥 Logotipi (Olov va Kosa SVG) -->
+      <a href="#bosh-sahifa" class="flex items-center gap-3 group shrink-0">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#ff3b1f] via-[#991b1b] to-[#0a0807] border border-[#ffd166]/65 flex items-center justify-center shadow-lg shadow-red-950/60 group-hover:scale-105 transition-transform">
+          <svg class="w-7 h-7" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MILLIY OLOV Logotipi">
+            <path d="M18 3C18 3 25.5 10.2 25.5 16.5C25.5 20.5 22.1 23.6 18 23.6C13.9 23.6 10.5 20.5 10.5 16.5C10.5 14 11.8 11.7 13.4 9.7C13.4 9.7 13.9 12.5 16.1 12.5C14.9 9.2 18 3 18 3Z" fill="url(#milliyOlovFlame)" />
+            <path d="M6.5 25H29.5C28.5 29.9 23.8 33 18 33C12.2 33 7.5 29.9 6.5 25Z" fill="#f5b82e" />
+            <path d="M10.5 27.7H25.5" stroke="#0a0807" stroke-width="1.6" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="milliyOlovFlame" x1="18" y1="3" x2="18" y2="23.6" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ffd166" />
+                <stop offset="0.55" stop-color="#ff3b1f" />
+                <stop offset="1" stop-color="#991b1b" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-black text-xl sm:text-2xl tracking-wider gold-gradient">MILLIY OLOV</span>
+            <span class="text-lg">🔥</span>
+          </div>
+          <p class="text-[10px] text-amber-200/70 tracking-widest uppercase hidden sm:block">Milliy Taomlar Restorani</p>
+        </div>
+      </a>
+
+      <!-- Navigatsiya havolalari -->
+      <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-amber-100/80">
+        <a href="#menyu" class="hover:text-[#ffd166] transition-colors">Menyu</a>
+        <a href="#non-choy" class="hover:text-[#ffd166] transition-colors">Non va choy</a>
+        <a href="#aksiyalar" class="hover:text-[#ffd166] transition-colors">Aksiyalar</a>
+        <a href="#dastavka" class="hover:text-[#ffd166] transition-colors">Dastavka</a>
+        <a href="#fikrlar" class="hover:text-[#ffd166] transition-colors">Fikrlar</a>
+        <a href="#aloqa" class="hover:text-[#ffd166] transition-colors">Aloqa</a>
+      </nav>
+
+      <!-- Qidiruv, Admin Panel va Savat -->
+      <div class="flex items-center gap-2 sm:gap-2.5 w-full lg:w-auto justify-end order-3 lg:order-none">
+        <div class="relative flex-1 sm:w-56 md:w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-[#f5b82e] text-xs"></i>
+          <input
+            id="menu-search-input"
+            type="text"
+            oninput="handleSearchQuery(this.value)"
+            placeholder="Taom qidirish..."
+            class="w-full pl-9 pr-8 py-2 rounded-xl bg-[#1a1412] border border-[#f5b82e]/25 focus:border-[#ffd166] focus:outline-none text-xs sm:text-sm text-white placeholder-stone-500"
+          />
+          <button
+            id="menu-search-clear"
+            type="button"
+            onclick="clearSearchFilter()"
+            class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-white text-xs cursor-pointer"
+            title="Tozalash"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onclick="openAdminModal()"
+          class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1a1412] hover:bg-[#281e1a] text-[#ffd166] border border-[#f5b82e]/35 hover:border-[#ffd166] text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0"
+        >
+          <i class="fa-solid fa-user-shield"></i>
+          <span class="hidden sm:inline">Admin Panel</span>
+        </button>
+
+        <button
+          type="button"
+          onclick="openCartDrawer()"
+          class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#e11d2b] to-[#991b1b] hover:from-[#ff3b1f] hover:to-[#b91c1c] text-white font-bold text-xs sm:text-sm shadow-md shadow-red-950 transition-all cursor-pointer shrink-0"
+        >
+          <i class="fa-solid fa-bag-shopping text-[#ffd166]"></i>
+          <span class="hidden md:inline">Savat</span>
+          <span id="header-cart-badge" class="bg-[#ffd166] text-[#0a0807] font-extrabold text-xs px-2 py-0.5 rounded-full min-w-[22px] text-center">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobil / Planshet Navigatsiya -->
+    <div class="flex xl:hidden items-center gap-4 px-4 py-2 bg-[#0a0807]/95 border-t border-white/5 overflow-x-auto text-xs font-medium text-stone-400">
+      <a href="#menyu" class="hover:text-[#ffd166] whitespace-nowrap">Menyu</a>
+      <a href="#non-choy" class="hover:text-[#ffd166] whitespace-nowrap">Non va choy</a>
+      <a href="#aksiyalar" class="hover:text-[#ffd166] whitespace-nowrap">Aksiyalar</a>
+      <a href="#dastavka" class="hover:text-[#ffd166] whitespace-nowrap">Dastavka</a>
+      <a href="#fikrlar" class="hover:text-[#ffd166] whitespace-nowrap">Fikrlar</a>
+      <a href="#aloqa" class="hover:text-[#ffd166] whitespace-nowrap">Aloqa</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO VA MAXSUS AKSIYA BANNERI ==================== -->
+  <section class="relative pt-8 pb-14 sm:pt-12 sm:pb-20 overflow-hidden">
+    <div class="hero-glow-layer"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+      <!-- Chap tomon -->
+      <div class="lg:col-span-6 space-y-5 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f5b82e]/10 border border-[#f5b82e]/35 text-[#ffd166] text-xs sm:text-sm font-semibold">
+          <i class="fa-solid fa-fire text-[#ff3b1f]"></i>
+          <span>O‘choq boshidan issiqina milliy taomlar</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+          Haqiqiy O‘zbek Ta’mi — <span class="gold-gradient font-display">MILLIY OLOV</span> Qo‘rida!
+        </h1>
+
+        <p class="text-stone-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          O‘zbek palovi va to‘y oshi, qozon kabob, shashlik, manti, lag‘mon, norin, sho‘rva, somsa hamda tandir non va xushbo‘y choy.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+          <a href="#menyu" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#f5b82e] to-[#d99b16] hover:from-[#ffd166] hover:to-[#f5b82e] text-[#0a0807] font-extrabold text-sm sm:text-base shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Menyuni Ko‘rish</span>
+          </a>
+          <button type="button" onclick="addTwoOshPromoBundle()" class="px-6 py-3.5 rounded-2xl bg-[#1a1412] hover:bg-[#261d1a] text-white border border-[#ff3b1f]/65 hover:border-[#ffd166] font-bold text-sm sm:text-base transition-all flex items-center gap-2 cursor-pointer">
+            <span>🔥</span>
+            <span>2 ta Osh + Bepul Non & Choy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- O'ng tomon: KATTA AKSIYA BANNERI -->
+      <div class="lg:col-span-6">
+        <div class="flame-border-grad rounded-3xl p-[2px] promo-banner-pulse">
+          <div class="bg-[#130f0e] rounded-[22px] p-6 sm:p-8 space-y-5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#e11d2b] text-white text-xs font-extrabold uppercase tracking-wider">
+                <i class="fa-solid fa-bolt text-[#ffd166]"></i> MAXSUS AKSIYA 🔥
+              </span>
+              <span id="hero-promo-status-pill" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                ● Avtomatik ishlaydi
+              </span>
+            </div>
+
+            <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+              2 TA OSH OLING — <span class="gold-gradient">NON VA CHOY BEPUL!</span>
+            </h2>
+
+            <p class="text-stone-300 text-sm leading-relaxed">
+              Savatga jami <strong class="text-white">2 ta osh</strong> (<em>O‘zbek palovi</em> yoki <em>To‘y oshi</em>) qo‘shilganda <strong class="text-[#ffd166]">Non (3 500 so‘m)</strong> va <strong class="text-[#ffd166]">Choy (2 000 so‘m)</strong> avtomatik <strong class="text-emerald-400">0 so‘m</strong> hisoblanadi!
+            </p>
+
+            <div class="grid grid-cols-3 gap-3">
+              <div class="bg-[#0a0807] p-3 rounded-2xl border border-[#f5b82e]/20 text-center">
+                <p class="text-sm font-extrabold text-white">2 ta Osh</p>
+                <p class="text-[11px] text-[#f5b82e] mt-0.5">Palov / To‘y oshi</p>
+              </div>
+              <div class="bg-[#0a0807] p-3 rounded-2xl border border-emerald-500/30 text-center">
+                <p class="text-sm font-extrabold text-emerald-400">Non — 0 so‘m</p>
+                <p class="text-[11px] text-stone-500 line-through mt-0.5">3 500 so‘m</p>
+              </div>
+              <div class="bg-[#0a0807] p-3 rounded-2xl border border-emerald-500/30 text-center">
+                <p class="text-sm font-extrabold text-emerald-400">Choy — 0 so‘m</p>
+                <p class="text-[11px] text-stone-500 line-through mt-0.5">2 000 so‘m</p>
+              </div>
+            </div>
+
+            <button type="button" onclick="addTwoOshPromoBundle()" class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#e11d2b] to-[#991b1b] hover:from-[#ff3b1f] hover:to-[#b91c1c] text-white font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Aksiyani Savatga Qo‘shish</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ENG KO'P SOTILADIGAN TAOMLAR ==================== -->
+  <section id="bestsellers" class="py-12 sm:py-16 bg-[#0d0a09] border-y border-[#f5b82e]/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <div>
+          <span class="text-[#ff3b1f] text-xs font-extrabold uppercase tracking-widest">Mehmonlar Tanlovi</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Eng ko‘p sotiladigan taomlar 🔥</h2>
+        </div>
+        <a href="#menyu" class="text-xs sm:text-sm font-bold text-[#f5b82e] hover:text-[#ffd166] flex items-center gap-1.5">
+          <span>Barcha taomlar</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div id="bestsellers-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAOMLAR MENYUSI VA NON/CHOY ==================== -->
+  <section id="menyu" class="py-14 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-[#f5b82e] text-xs font-extrabold uppercase tracking-widest">Milliy Dasturxon</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Taomlar menyusi 🍽️</h2>
+          <p class="text-stone-400 text-sm mt-1.5">9 ta an’anaviy milliy taom hamda alohida buyurtma qilinadigan Non va Choy.</p>
+        </div>
+
+        <!-- Kategoriya filtrlari -->
+        <div id="category-tabs-bar" class="flex items-center gap-2 overflow-x-auto pb-1">
+          <!-- JS orqali to'ldiriladi -->
+        </div>
+      </div>
+
+      <!-- Taomlar kartochkalari -->
+      <div id="main-menu-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+
+      <!-- Qidiruv natijasi topilmasa -->
+      <div id="empty-search-state" class="hidden text-center py-12 bg-[#1a1412] rounded-3xl border border-white/10 space-y-3">
+        <p class="text-3xl">🔎</p>
+        <h3 class="text-lg font-bold text-white">Bunday taom topilmadi</h3>
+        <button type="button" onclick="clearSearchFilter()" class="px-5 py-2.5 rounded-xl bg-[#f5b82e] text-[#0a0807] font-extrabold text-xs cursor-pointer">
+          Barcha taomlarni ko‘rsatish
+        </button>
+      </div>
+
+      <!-- NON VA CHOY BO'LIMI (#non-choy) -->
+      <div id="non-choy" class="pt-8 border-t border-[#f5b82e]/25 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span class="text-[#f5b82e] text-xs font-extrabold uppercase tracking-widest">Alohida yoki Aksiya Bilan</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">Non va choy</h3>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1.5 rounded-full">
+            2 ta osh bilan 1 ta Non + 1 ta Choy = 0 so‘m!
+          </span>
+        </div>
+        <div id="non-choy-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- JS orqali Non (3 500 so'm) va Choy (2 000 so'm) joylashtiriladi -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== YANGI AKSIYALAR (#aksiyalar) ==================== -->
+  <section id="aksiyalar" class="py-12 sm:py-16 bg-[#0d0a09] border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-[#f5b82e] text-xs font-extrabold uppercase tracking-widest">Maxsus Takliflar</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Yangi aksiyalar 🎁</h2>
+        </div>
+        <button type="button" onclick="addTwoOshPromoBundle()" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-[#e11d2b] to-[#991b1b] hover:from-[#ff3b1f] hover:to-[#b91c1c] text-white font-extrabold text-xs sm:text-sm transition-all cursor-pointer inline-flex items-center gap-2 self-start sm:self-auto">
+          <i class="fa-solid fa-fire text-[#ffd166]"></i>
+          <span>2 ta Oshni Bir Tugmada Qo‘shish</span>
+        </button>
+      </div>
+
+      <div id="promos-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DASTAVKA (#dastavka) ==================== -->
+  <section id="dastavka" class="py-14 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-[#1a1412] border border-[#f5b82e]/30 p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e11d2b]/20 text-[#ff3b1f] border border-[#ff3b1f]/35 text-xs font-extrabold uppercase">
+            <i class="fa-solid fa-motorcycle"></i> Dastavka va Olib Ketish
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Tezkor Yetkazib Berish Xizmati
+          </h2>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Milliy taomlarimiz maxsus issiqlik saqlovchi qadoqlarda uyingiz yoki ofisingizgacha yetkazib beriladi. Shuningdek, restorandan o‘zingiz <strong class="text-white">Olib ketish</strong> turini tanlashingiz mumkin. <strong class="text-[#ffd166]">100 000 so‘mdan</strong> yuqori buyurtmalarga yetkazib berish bepul.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-[#0a0807] border border-[#f5b82e]/25 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-[#f5b82e]/15 text-[#ffd166] flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <p class="text-xs text-stone-400">Dastavka telefon raqami:</p>
+                <a id="delivery-phone-link" href="tel:+998901234567" class="text-base sm:text-lg font-extrabold text-[#ffd166] hover:underline">
+                  <span id="delivery-phone-display">+998 90 123 45 67</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#0a0807] border border-[#ff3b1f]/30 flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-[#e11d2b]/20 text-[#ff3b1f] flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <p class="text-xs text-stone-400">Yetkazish muddati:</p>
+                <p class="text-sm sm:text-base font-extrabold text-white">30 – 45 daqiqa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-[#0a0807] rounded-2xl p-6 border border-white/10 space-y-4">
+          <h3 class="text-base font-extrabold text-[#ffd166]">Buyurtma turini tanlang:</h3>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" onclick="selectOrderFulfillment('delivery'); openCartDrawer();" class="py-3 px-3 rounded-xl bg-[#e11d2b] hover:bg-[#ff3b1f] text-white font-bold text-xs sm:text-sm cursor-pointer">
+              <i class="fa-solid fa-motorcycle mr-1"></i> Yetkazib berish
+            </button>
+            <button type="button" onclick="selectOrderFulfillment('pickup'); openCartDrawer();" class="py-3 px-3 rounded-xl bg-[#1a1412] hover:bg-[#281e1a] text-[#ffd166] border border-[#f5b82e]/35 font-bold text-xs sm:text-sm cursor-pointer">
+              <i class="fa-solid fa-store mr-1"></i> Olib ketish
+            </button>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed">
+            Savatda <strong class="text-white">Naqd pul</strong> yoki <strong class="text-white">Karta orqali</strong> to‘lovni tanlab, buyurtmani saytda ro‘yxatdan o‘tkazing yoki <strong class="text-sky-400">Telegram</strong> orqali yuboring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MIJOZLAR FIKRLARI (#fikrlar) ==================== -->
+  <section id="fikrlar" class="py-12 sm:py-16 bg-[#0d0a09] border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-[#f5b82e] text-xs font-extrabold uppercase tracking-widest">Mehmonlarimiz Sharhi</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Mijozlar fikrlari ⭐</h2>
+      </div>
+      <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BIZ BILAN BOG'LANISH (#aloqa) VA FOOTER ==================== -->
+  <footer id="aloqa" class="bg-[#0a0807] pt-14 pb-8 border-t border-[#f5b82e]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/10">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="font-display font-black text-2xl gold-gradient">MILLIY OLOV</span>
+            <span class="text-xl">🔥</span>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-400 leading-relaxed">
+            An’anaviy o‘zbek milliy taomlari restorani. Halol mahsulotlar, samimiy xizmat va tezkor dastavka.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-white mb-3">Bo‘limlar</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-400">
+            <li><a href="#menyu" class="hover:text-[#ffd166]">Menyu</a></li>
+            <li><a href="#non-choy" class="hover:text-[#ffd166]">Non va choy</a></li>
+            <li><a href="#aksiyalar" class="hover:text-[#ffd166]">Aksiyalar</a></li>
+            <li><a href="#dastavka" class="hover:text-[#ffd166]">Dastavka</a></li>
+            <li><a href="#fikrlar" class="hover:text-[#ffd166]">Fikrlar</a></li>
+            <li><a href="#aloqa" class="hover:text-[#ffd166]">Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-white mb-3">Manzil va Aloqa</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-stone-400">
+            <li><i class="fa-solid fa-location-dot text-[#ff3b1f] mr-2"></i>Toshkent sh., Amir Temur ko‘chasi, 45</li>
+            <li>
+              <i class="fa-solid fa-phone text-[#f5b82e] mr-2"></i>
+              <a id="footer-phone-link" href="tel:+998901234567" class="text-white font-semibold hover:text-[#ffd166]">
+                <span id="footer-phone-display">+998 90 123 45 67</span>
+              </a>
+            </li>
+            <li>
+              <i class="fa-brands fa-telegram text-sky-400 mr-2"></i>
+              <a id="footer-tg-link" href="https://t.me/milliy_olov_uz" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400">
+                <span id="footer-tg-handle">@milliy_olov_uz</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-extrabold text-white mb-3">Biz bilan bog‘lanish</h4>
+          <form onsubmit="handleContactMessage(event)" class="space-y-2.5">
+            <input type="text" required placeholder="Ismingiz" class="w-full px-3.5 py-2 rounded-xl bg-[#1a1412] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs text-white" />
+            <input type="tel" required placeholder="+998 90 123 45 67" class="w-full px-3.5 py-2 rounded-xl bg-[#1a1412] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs text-white" />
+            <textarea rows="2" required placeholder="Xabaringizni yozing..." class="w-full px-3.5 py-2 rounded-xl bg-[#1a1412] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs text-white"></textarea>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-[#e11d2b] hover:bg-[#ff3b1f] text-white font-bold text-xs cursor-pointer transition-colors">
+              Xabar Yuborish
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-6 text-center text-xs text-stone-500">
+        © 2026 MILLIY OLOV 🔥. Barcha huquqlar himoyalangan.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SAVAT DRAWER ==================== -->
+  <div id="cart-overlay" onclick="closeCartDrawer()" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[460px] bg-[#130f0e] border-l border-[#f5b82e]/30 z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-4 sm:p-5 bg-[#0a0807] border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <i class="fa-solid fa-bag-shopping text-[#ffd166] text-lg"></i>
+        <h3 class="text-lg font-extrabold text-white">Savat</h3>
+      </div>
+      <button type="button" onclick="closeCartDrawer()" class="w-9 h-9 rounded-xl bg-[#1a1412] hover:bg-[#e11d2b] text-stone-300 hover:text-white flex items-center justify-center cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Avtomatik aksiya holati -->
+    <div id="cart-promo-banner" class="px-5 py-2.5 bg-[#5a0b12]/50 border-b border-[#f5b82e]/20 text-xs">
+      <!-- JS orqali yangilanadi -->
+    </div>
+
+    <!-- Mahsulotlar va rasmiylashtirish formasi -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5">
+      <div id="cart-items-container" class="space-y-3">
+        <!-- JS orqali to'ldiriladi -->
+      </div>
+
+      <form id="checkout-order-form" onsubmit="submitCartOrder(event, 'site')" class="hidden pt-4 border-t border-white/10 space-y-3.5">
+        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#ffd166]">Buyurtmani Rasmiylashtirish</h4>
+
+        <!-- Yetkazib berish / Olib ketish -->
+        <div class="grid grid-cols-2 gap-2 p-1 bg-[#0a0807] rounded-xl border border-white/10">
+          <button id="fulfillment-delivery-btn" type="button" onclick="selectOrderFulfillment('delivery')" class="py-2 rounded-lg text-xs font-extrabold bg-[#e11d2b] text-white cursor-pointer">
+            <i class="fa-solid fa-motorcycle mr-1"></i> Yetkazib berish
+          </button>
+          <button id="fulfillment-pickup-btn" type="button" onclick="selectOrderFulfillment('pickup')" class="py-2 rounded-lg text-xs font-extrabold text-stone-400 hover:text-white cursor-pointer">
+            <i class="fa-solid fa-store mr-1"></i> Olib ketish
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] text-stone-400 mb-1">Mijoz ismi *</label>
+            <input id="order-customer-name" type="text" required placeholder="Ismingiz" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0a0807] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs sm:text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-stone-400 mb-1">Telefon raqam *</label>
+            <input id="order-customer-phone" type="tel" required placeholder="+998 90 123 45 67" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0a0807] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs sm:text-sm text-white" />
+          </div>
+        </div>
+
+        <div id="order-address-field">
+          <label class="block text-[11px] text-stone-400 mb-1">Yetkazib berish manzili *</label>
+          <input id="order-customer-address" type="text" placeholder="Tuman, ko‘cha, uy, mo‘ljal..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#0a0807] border border-white/15 focus:border-[#ffd166] focus:outline-none text-xs sm:text-sm text-white" />
+        </div>
+
+        <!-- Naqd pul yoki Karta orqali -->
+        <div>
+          <label class="block text-[11px] text-stone-400 mb-1.5">To‘lov usuli *</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0a0807] border border-[#f5b82e]/35 text-xs font-semibold text-white cursor-pointer">
+              <input type="radio" name="cartPaymentMethod" value="Naqd pul" checked class="accent-[#f5b82e]" />
+              <span>💵 Naqd pul</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0a0807] border border-white/15 text-xs font-semibold text-white cursor-pointer">
+              <input type="radio" name="cartPaymentMethod" value="Karta orqali" class="accent-[#f5b82e]" />
+              <span>💳 Karta orqali</span>
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Hisob-kitob va buyurtma tugmalari -->
+    <div id="cart-footer-summary" class="hidden p-4 sm:p-5 bg-[#0a0807] border-t border-[#f5b82e]/25 space-y-3">
+      <div class="space-y-1.5 text-xs sm:text-sm">
+        <div class="flex justify-between text-stone-400">
+          <span>Mahsulotlar summasi:</span>
+          <span id="cart-subtotal-amount">0 so‘m</span>
+        </div>
+        <div id="cart-promo-discount-row" class="hidden flex justify-between text-emerald-400 font-bold">
+          <span>🔥 Aksiya tejamkorligi (Non + Choy):</span>
+          <span id="cart-promo-discount-amount">-0 so‘m</span>
+        </div>
+        <div class="flex justify-between text-stone-400">
+          <span>Yetkazib berish:</span>
+          <span id="cart-delivery-amount" class="text-white">0 so‘m</span>
+        </div>
+        <div class="flex justify-between text-base sm:text-lg font-extrabold text-white pt-2 border-t border-white/10">
+          <span>Umumiy narx:</span>
+          <span id="cart-grand-total" class="gold-gradient">0 so‘m</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+        <button type="button" onclick="submitCartOrder(null, 'site')" class="py-3 px-4 rounded-xl bg-gradient-to-r from-[#f5b82e] to-[#d99b16] hover:from-[#ffd166] hover:to-[#f5b82e] text-[#0a0807] font-extrabold text-xs sm:text-sm cursor-pointer flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-check"></i>
+          <span>Buyurtmani rasmiylashtirish</span>
+        </button>
+        <button type="button" onclick="submitCartOrder(null, 'telegram')" class="py-3 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs sm:text-sm cursor-pointer flex items-center justify-center gap-1.5">
+          <i class="fa-brands fa-telegram text-base"></i>
+          <span>Telegram orqali buyurtma yuborish</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== BUYURTMA TASDIQLASH MODALI ==================== -->
+  <div id="order-receipt-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[85] hidden items-center justify-center p-4">
+    <div class="bg-[#1a1412] border border-[#ffd166]/45 rounded-3xl max-w-md w-full p-6 space-y-4 text-center">
+      <div class="w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/35 flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-extrabold text-white">Buyurtmangiz Rasmiylashtirildi! 🔥</h3>
+      <p id="receipt-subtitle" class="text-xs sm:text-sm text-stone-300"></p>
+      <pre id="receipt-text-box" class="bg-[#0a0807] p-3.5 rounded-2xl border border-white/10 text-left text-[11px] text-stone-200 whitespace-pre-wrap font-mono max-h-48 overflow-y-auto"></pre>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" onclick="copyReceiptText()" class="flex-1 py-2.5 px-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-[#ffd166] text-xs font-bold cursor-pointer">
+          <i class="fa-regular fa-copy mr-1"></i> Nusxalash
+        </button>
+        <a id="receipt-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold flex items-center justify-center gap-1">
+          <i class="fa-brands fa-telegram"></i> Telegramda ochish
+        </a>
+        <button type="button" onclick="closeReceiptModal()" class="w-full py-2.5 rounded-xl bg-[#e11d2b] hover:bg-[#ff3b1f] text-white text-xs font-bold cursor-pointer">
+          Yopish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ADMIN PANEL MODALI ==================== -->
+  <div id="admin-panel-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[75] hidden items-center justify-center p-2 sm:p-5">
+    <div class="bg-[#130f0e] border border-[#f5b82e]/40 rounded-3xl w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden">
+      <!-- Admin Header -->
+      <div class="p-4 sm:p-6 bg-[#0a0807] border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
+            <i class="fa-solid fa-crown text-[#ffd166]"></i>
+            <span>MILLIY OLOV — Admin Panel</span>
+          </h2>
+          <p class="text-xs text-stone-400">Taom qo‘shish/o‘chirish, narx va rasm almashtirish, buyurtmalar, aksiyalar va dastavka raqami</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="resetDemoStoreData()" class="px-3 py-2 rounded-xl bg-[#1a1412] hover:bg-stone-800 text-stone-300 border border-white/10 text-xs font-bold cursor-pointer">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Standart ma’lumotlar
+          </button>
+          <button type="button" onclick="closeAdminModal()" class="w-10 h-10 rounded-xl bg-[#1a1412] hover:bg-[#e11d2b] text-stone-300 hover:text-white flex items-center justify-center cursor-pointer">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Tablar -->
+      <div class="px-4 sm:px-6 bg-[#0d0a09] border-b border-white/10 flex gap-2 overflow-x-auto">
+        <button id="admin-tab-dishes" type="button" onclick="switchAdminSection('dishes')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-[#ffd166] text-[#ffd166] whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-utensils mr-1.5"></i> Taomlar menyusi
+        </button>
+        <button id="admin-tab-orders" type="button" onclick="switchAdminSection('orders')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-400 hover:text-white whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-receipt mr-1.5"></i> Buyurtmalar <span id="admin-order-count-badge" class="ml-1 px-2 py-0.5 rounded-full bg-[#e11d2b] text-white text-[11px]">0</span>
+        </button>
+        <button id="admin-tab-promos" type="button" onclick="switchAdminSection('promos')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-400 hover:text-white whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-fire mr-1.5"></i> Aksiyalar va Dastavka
+        </button>
+      </div>
+
+      <!-- Admin Kontenti -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+        <!-- 1. TAOMLAR BOSHQARUVI -->
+        <div id="admin-section-dishes" class="space-y-6">
+          <form onsubmit="adminCreateDish(event)" class="bg-[#0a0807] p-4 sm:p-5 rounded-2xl border border-[#f5b82e]/25 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+            <input id="new-dish-name" type="text" required placeholder="Taom nomi" class="lg:col-span-3 px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none" />
+            <select id="new-dish-category" class="lg:col-span-2 px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none">
+              <option value="Osh">Osh</option>
+              <option value="Kaboblar">Kaboblar</option>
+              <option value="Milliy taomlar">Milliy taomlar</option>
+              <option value="Suyuq taomlar">Suyuq taomlar</option>
+              <option value="Pishiriqlar">Pishiriqlar</option>
+              <option value="Non va choy">Non va choy</option>
+            </select>
+            <input id="new-dish-price" type="number" required min="0" step="500" placeholder="Narxi (so‘m)" class="lg:col-span-2 px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none" />
+            <select id="new-dish-preset-art" class="lg:col-span-2 px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none">
+              <option value="plov">Rasm: Osh (Qozon)</option>
+              <option value="kabob">Rasm: Kabob / Shashlik</option>
+              <option value="manti">Rasm: Manti</option>
+              <option value="lagmon">Rasm: Lag‘mon</option>
+              <option value="norin">Rasm: Norin</option>
+              <option value="shorva">Rasm: Sho‘rva</option>
+              <option value="somsa">Rasm: Somsa</option>
+              <option value="non">Rasm: Non</option>
+              <option value="choy">Rasm: Choy</option>
+            </select>
+            <label class="lg:col-span-1 flex items-center gap-1.5 text-[11px] font-bold text-[#ffd166] cursor-pointer select-none">
+              <input id="new-dish-is-osh" type="checkbox" class="w-4 h-4 accent-[#f5b82e]" />
+              <span>Osh</span>
+            </label>
+            <button type="submit" class="lg:col-span-2 py-2.5 px-4 rounded-xl bg-[#f5b82e] hover:bg-[#ffd166] text-[#0a0807] font-extrabold text-xs cursor-pointer">
+              + Taom Qo‘shish
+            </button>
+          </form>
+
+          <div id="admin-dishes-list" class="space-y-3">
+            <!-- JS orqali to'ldiriladi -->
+          </div>
+        </div>
+
+        <!-- 2. BUYURTMALAR BOSHQARUVI -->
+        <div id="admin-section-orders" class="hidden space-y-4">
+          <div id="admin-orders-list" class="space-y-4">
+            <!-- JS orqali to'ldiriladi -->
+          </div>
+        </div>
+
+        <!-- 3. AKSIYALAR VA DASTAVKA SOZLAMALARI -->
+        <div id="admin-section-promos" class="hidden space-y-6">
+          <div class="bg-[#0a0807] p-5 rounded-2xl border border-[#f5b82e]/25 space-y-4">
+            <h3 class="text-sm font-extrabold text-[#ffd166] uppercase">Dastavka Telefon Raqami va Telegram</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs text-stone-400 mb-1">Dastavka telefon raqami</label>
+                <input id="admin-phone-input" type="text" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-sm text-white focus:border-[#ffd166] focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs text-stone-400 mb-1">Telegram username</label>
+                <input id="admin-telegram-input" type="text" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-sm text-white focus:border-[#ffd166] focus:outline-none" />
+              </div>
+              <div class="flex items-end">
+                <button type="button" onclick="adminSaveStoreSettings()" class="w-full py-2.5 px-4 rounded-xl bg-[#f5b82e] hover:bg-[#ffd166] text-[#0a0807] font-extrabold text-sm cursor-pointer">
+                  Saqlash
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#0a0807] p-5 rounded-2xl border border-[#ff3b1f]/35 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h4 class="text-sm sm:text-base font-extrabold text-white">🔥 2 TA OSH OLING — NON VA CHOY BEPUL!</h4>
+              <p class="text-xs text-stone-400 mt-1">Savatda 2 ta osh bo‘lganda Non va Choyni avtomatik 0 so‘m qilish aksiyasi</p>
+            </div>
+            <label class="inline-flex items-center gap-2.5 cursor-pointer">
+              <input id="admin-osh-promo-switch" type="checkbox" onchange="adminToggleOshPromo(this.checked)" class="w-5 h-5 accent-[#f5b82e]" />
+              <span class="text-xs sm:text-sm font-bold text-white">Aksiya faol</span>
+            </label>
+          </div>
+
+          <div class="bg-[#0a0807] p-5 rounded-2xl border border-white/10 space-y-4">
+            <h3 class="text-sm font-extrabold text-[#ffd166] uppercase">Aksiyalarni Boshqarish</h3>
+            <form onsubmit="adminCreatePromo(event)" class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+              <input id="new-promo-badge" type="text" required placeholder="Yorliq (masalan: JUMA)" class="px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white" />
+              <input id="new-promo-title" type="text" required placeholder="Aksiya sarlavhasi" class="px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white" />
+              <input id="new-promo-desc" type="text" required placeholder="Aksiya matni" class="px-3.5 py-2.5 rounded-xl bg-[#1a1412] border border-white/15 text-xs text-white" />
+              <button type="submit" class="py-2.5 px-4 rounded-xl bg-[#e11d2b] hover:bg-[#ff3b1f] text-white font-bold text-xs cursor-pointer">
+                + Aksiya Qo‘shish
+              </button>
+            </form>
+            <div id="admin-promos-list" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <!-- JS orqali to'ldiriladi -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ASOSIY JAVASCRIPT MANTIQI ==================== -->
+  <script>
+    /* =====================================================================
+       MILLIY OLOV 🔥 — Batafsil SVG Data-URI Taom Illyustratsiyalari
+       ===================================================================== */
+    function toSvgDataUri(svgStr) {
+      return `data:image/svg+xml;utf8,${encodeURIComponent(svgStr.trim())}`;
+    }
+
+    const ART_KEYS = ['plov', 'kabob', 'manti', 'lagmon', 'norin', 'shorva', 'somsa', 'non', 'choy'];
+
+    function generateFoodArt(artType, title, subtitle) {
+      const safeTitle = String(title || 'Milliy taom').replace(/[<>&"]/g, '');
+      const safeSub = String(subtitle || 'MILLIY OLOV').replace(/[<>&"]/g, '');
+
+      let artwork = '';
+      switch (artType) {
+        case 'plov':
+          artwork = `
+            <ellipse cx="240" cy="154" rx="126" ry="44" fill="#d97706" opacity="0.25"/>
+            <path d="M128 148C128 106 352 106 352 148C352 184 300 202 240 202C180 202 128 184 128 148Z" fill="#f59e0b" stroke="#ffd166" stroke-width="2.5"/>
+            <path d="M148 140C168 108 312 108 332 140C308 164 172 164 148 140Z" fill="#ffd166"/>
+            <path d="M162 146L194 138M286 138L318 146M208 152L240 144" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="204" cy="132" rx="18" ry="12" fill="#7c2d12"/>
+            <ellipse cx="276" cy="134" rx="17" ry="11" fill="#7c2d12"/>
+            <circle cx="240" cy="122" r="9" fill="#fef9c3"/>
+          `;
+          break;
+        case 'kabob':
+          artwork = `
+            <rect x="112" y="110" width="256" height="8" rx="4" fill="#cbd5e1"/>
+            <rect x="112" y="146" width="256" height="8" rx="4" fill="#cbd5e1"/>
+            <rect x="142" y="97" width="38" height="34" rx="11" fill="#991b1b" stroke="#ffd166" stroke-width="1.5"/>
+            <rect x="190" y="97" width="38" height="34" rx="11" fill="#dc2626" stroke="#ffd166" stroke-width="1.5"/>
+            <rect x="238" y="97" width="38" height="34" rx="11" fill="#7f1d1d" stroke="#ffd166" stroke-width="1.5"/>
+            <rect x="286" y="99" width="30" height="30" rx="9" fill="#f59e0b"/>
+            <rect x="150" y="133" width="38" height="34" rx="11" fill="#991b1b" stroke="#ffd166" stroke-width="1.5"/>
+            <rect x="198" y="133" width="38" height="34" rx="11" fill="#dc2626" stroke="#ffd166" stroke-width="1.5"/>
+            <rect x="246" y="133" width="38" height="34" rx="11" fill="#f59e0b"/>
+          `;
+          break;
+        case 'manti':
+          artwork = `
+            <ellipse cx="240" cy="156" rx="124" ry="38" fill="#1f1715" stroke="#f5b82e" stroke-width="2.5"/>
+            <path d="M158 148C158 122 214 122 214 148C214 162 158 162 158 148Z" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+            <path d="M212 142C212 114 268 114 268 142C268 158 212 158 212 142Z" fill="#ffd166" stroke="#d97706" stroke-width="2"/>
+            <path d="M266 148C266 122 322 122 322 148C322 162 266 162 266 148Z" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+            <path d="M174 128L186 138M198 128L186 138M228 120L240 132M252 120L240 132" stroke="#b45309" stroke-width="2" stroke-linecap="round"/>
+          `;
+          break;
+        case 'lagmon':
+          artwork = `
+            <path d="M136 128H344C338 174 295 198 240 198C185 198 142 174 136 128Z" fill="#181210" stroke="#f5b82e" stroke-width="2.5"/>
+            <ellipse cx="240" cy="128" rx="102" ry="20" fill="#b91c1c"/>
+            <path d="M168 128C194 114 222 142 248 128C272 114 294 140 314 128" stroke="#ffd166" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <circle cx="196" cy="132" r="10" fill="#22c55e"/>
+            <circle cx="284" cy="132" r="10" fill="#f97316"/>
+          `;
+          break;
+        case 'norin':
+          artwork = `
+            <ellipse cx="240" cy="152" rx="122" ry="42" fill="#1f1715" stroke="#ffd166" stroke-width="2.5"/>
+            <path d="M156 146L324 146M164 136L316 136M164 156L316 156" stroke="#fde68a" stroke-width="4" stroke-linecap="round"/>
+            <rect x="184" y="124" width="42" height="22" rx="7" fill="#991b1b"/>
+            <rect x="242" y="126" width="44" height="22" rx="7" fill="#7f1d1d"/>
+            <circle cx="240" cy="146" r="5" fill="#16a34a"/>
+          `;
+          break;
+        case 'shorva':
+          artwork = `
+            <path d="M142 124H338C332 172 290 196 240 196C190 196 148 172 142 124Z" fill="#181210" stroke="#f5b82e" stroke-width="2.5"/>
+            <ellipse cx="240" cy="124" rx="94" ry="20" fill="#e11d2b"/>
+            <circle cx="204" cy="125" r="14" fill="#fbbf24"/>
+            <circle cx="274" cy="126" r="13" fill="#f97316"/>
+            <circle cx="240" cy="120" r="9" fill="#22c55e"/>
+          `;
+          break;
+        case 'somsa':
+          artwork = `
+            <path d="M145 174L202 100L258 174C232 190 172 190 145 174Z" fill="#d97706" stroke="#ffd166" stroke-width="2.5"/>
+            <path d="M222 174L279 100L335 174C309 190 249 190 222 174Z" fill="#b45309" stroke="#ffd166" stroke-width="2.5"/>
+            <circle cx="202" cy="152" r="5" fill="#fef9c3"/>
+            <circle cx="279" cy="152" r="5" fill="#fef9c3"/>
+          `;
+          break;
+        case 'non':
+          artwork = `
+            <ellipse cx="240" cy="146" rx="108" ry="52" fill="#d97706" stroke="#ffd166" stroke-width="3.5"/>
+            <ellipse cx="240" cy="146" rx="58" ry="27" fill="#92400e" stroke="#f5b82e" stroke-width="2"/>
+            <circle cx="240" cy="146" r="10" fill="#ffd166"/>
+            <circle cx="218" cy="142" r="3" fill="#fef9c3"/>
+            <circle cx="262" cy="150" r="3" fill="#fef9c3"/>
+          `;
+          break;
+        case 'choy':
+        default:
+          artwork = `
+            <path d="M188 122H292L280 186H200L188 122Z" fill="#ffd166" fill-opacity="0.16" stroke="#ffd166" stroke-width="2.5"/>
+            <ellipse cx="240" cy="142" rx="46" ry="10" fill="#f59e0b" opacity="0.65"/>
+            <path d="M292 132C316 132 320 164 286 168" stroke="#ffd166" stroke-width="3" fill="none"/>
+            <path d="M216 98C210 86 222 78 218 68M240 94C234 82 246 74 242 64M264 98C258 86 270 78 266 68" stroke="#ffd166" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          `;
+          break;
+      }
+
+      return toSvgDataUri(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300">
+          <defs>
+            <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a1412"/>
+              <stop offset="55%" stop-color="#281312"/>
+              <stop offset="100%" stop-color="#0a0807"/>
+            </linearGradient>
+          </defs>
+          <rect width="480" height="300" fill="url(#cardGrad)"/>
+          <circle cx="240" cy="145" r="108" fill="#ff3b1f" opacity="0.11"/>
+          ${artwork}
+          <rect x="22" y="224" width="436" height="54" rx="14" fill="#0a0807" fill-opacity="0.86"/>
+          <text x="38" y="248" fill="#ffd166" font-family="Inter, sans-serif" font-size="18" font-weight="800">${safeTitle}</text>
+          <text x="38" y="268" fill="#a8a29e" font-family="Inter, sans-serif" font-size="12">${safeSub}</text>
+          <text x="442" y="257" text-anchor="end" fill="#ff3b1f" font-family="Inter, sans-serif" font-size="13" font-weight="800">MILLIY OLOV 🔥</text>
+        </svg>
+      `);
+    }
+
+    function generateReviewerAvatar(initials, ringColor) {
+      return toSvgDataUri(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+          <rect width="96" height="96" rx="48" fill="#1a1412"/>
+          <circle cx="48" cy="48" r="44" fill="none" stroke="${ringColor}" stroke-width="3.5"/>
+          <text x="48" y="57" text-anchor="middle" fill="#ffd166" font-family="Inter, sans-serif" font-size="28" font-weight="800">${initials}</text>
+        </svg>
+      `);
+    }
+
+    /* =====================================================================
+       BOSHLANG'ICH MA'LUMOTLAR (9 TA TAOM + NON + CHOY + AKSIYA + FIKRLAR)
+       ===================================================================== */
+    const STORE_KEYS = {
+      MENU: 'milliy_olov_menu_v3',
+      PROMOS: 'milliy_olov_promos_v3',
+      SETTINGS: 'milliy_olov_settings_v3',
+      ORDERS: 'milliy_olov_orders_v3',
+      CART: 'milliy_olov_cart_v3'
+    };
+
+    const DEFAULT_MENU = [
+      {
+        id: 'dish-ozbek-palovi',
+        name: 'O‘zbek palovi',
+        category: 'Osh',
+        isOsh: true,
+        isSide: false,
+        artType: 'plov',
+        price: 34000,
+        bestseller: true,
+        description: 'Devzira guruch, sarxil sabzi, zira va yumshoq mol go‘shtidan tayyorlangan klassik o‘zbek palovi.',
+        image: generateFoodArt('plov', 'O‘zbek palovi', 'Devzira guruch • Mol go‘shti')
+      },
+      {
+        id: 'dish-toy-oshi',
+        name: 'To‘y oshi',
+        category: 'Osh',
+        isOsh: true,
+        isSide: false,
+        artType: 'plov',
+        price: 36000,
+        bestseller: true,
+        description: 'No‘xat, mayiz, qazi va bedana tuxumi bilan tayyorlangan shohona Toshkent to‘y oshi.',
+        image: generateFoodArt('plov', 'To‘y oshi', 'No‘xat • Mayiz • Qazi')
+      },
+      {
+        id: 'dish-qozon-kabob',
+        name: 'Qozon kabob',
+        category: 'Kaboblar',
+        isOsh: false,
+        isSide: false,
+        artType: 'kabob',
+        price: 46000,
+        bestseller: true,
+        description: 'Qozonda qizartirib pishirilgan qo‘y go‘shti va tillarang qarsildoq kartoshka.',
+        image: generateFoodArt('kabob', 'Qozon kabob', 'Qo‘y go‘shti • Kartoshka')
+      },
+      {
+        id: 'dish-shashlik',
+        name: 'Shashlik',
+        category: 'Kaboblar',
+        isOsh: false,
+        isSide: false,
+        artType: 'kabob',
+        price: 24000,
+        bestseller: true,
+        description: 'Ko‘mir cho‘g‘ida pishirilgan suvli va xushbo‘y mol go‘shti shashligi.',
+        image: generateFoodArt('kabob', 'Shashlik', 'Ko‘mir qo‘rida • Mol go‘shti')
+      },
+      {
+        id: 'dish-manti',
+        name: 'Manti',
+        category: 'Milliy taomlar',
+        isOsh: false,
+        isSide: false,
+        artType: 'manti',
+        price: 28000,
+        bestseller: false,
+        description: 'Yupqa xamir va sersuv go‘sht qiymasidan bug‘da pishirilgan issiq manti.',
+        image: generateFoodArt('manti', 'Manti', 'Bug‘da pishgan • Sersuv qiyma')
+      },
+      {
+        id: 'dish-lagmon',
+        name: 'Lag‘mon',
+        category: 'Milliy taomlar',
+        isOsh: false,
+        isSide: false,
+        artType: 'lagmon',
+        price: 32000,
+        bestseller: false,
+        description: 'Qo‘lda cho‘zilgan xamir va sabzavot-go‘shtli boy qaylali an’anaviy lag‘mon.',
+        image: generateFoodArt('lagmon', 'Lag‘mon', 'Qo‘lda cho‘zilgan xamir')
+      },
+      {
+        id: 'dish-norin',
+        name: 'Norin',
+        category: 'Milliy taomlar',
+        isOsh: false,
+        isSide: false,
+        artType: 'norin',
+        price: 35000,
+        bestseller: false,
+        description: 'Mayin to‘g‘ralgan xamir va mazali go‘shtli Toshkent norini.',
+        image: generateFoodArt('norin', 'Norin', 'Mayin xamir • Mazali go‘sht')
+      },
+      {
+        id: 'dish-shorva',
+        name: 'Sho‘rva',
+        category: 'Suyuq taomlar',
+        isOsh: false,
+        isSide: false,
+        artType: 'shorva',
+        price: 30000,
+        bestseller: false,
+        description: 'Yangi go‘sht, kartoshka, sabzi va ko‘katlar bilan qaynatilgan to‘yimli sho‘rva.',
+        image: generateFoodArt('shorva', 'Sho‘rva', 'Issiq sho‘rva • Sabzavot va go‘sht')
+      },
+      {
+        id: 'dish-somsa',
+        name: 'Somsa',
+        category: 'Pishiriqlar',
+        isOsh: false,
+        isSide: false,
+        artType: 'somsa',
+        price: 12000,
+        bestseller: false,
+        description: 'Tandirda qizartirib pishirilgan, qat-qat xamirli go‘shtli somsa.',
+        image: generateFoodArt('somsa', 'Somsa', 'Tandir somsa • Qat-qat xamir')
+      },
+      {
+        id: 'side-non',
+        name: 'Non',
+        category: 'Non va choy',
+        isOsh: false,
+        isSide: true,
+        kind: 'bread',
+        artType: 'non',
+        price: 3500,
+        bestseller: false,
+        description: 'Tandirdan yangi uzilgan issiq va yumshoq o‘zbek noni (2 ta osh bilan 0 so‘m).',
+        image: generateFoodArt('non', 'Non', '3 500 so‘m • Tandir non')
+      },
+      {
+        id: 'side-choy',
+        name: 'Choy',
+        category: 'Non va choy',
+        isOsh: false,
+        isSide: true,
+        kind: 'tea',
+        artType: 'choy',
+        price: 2000,
+        bestseller: false,
+        description: 'Xushbo‘y damlangan ko‘k yoki qora choy (2 ta osh bilan 0 so‘m).',
+        image: generateFoodArt('choy', 'Choy', '2 000 so‘m • Ko‘k / Qora choy')
+      }
+    ];
+
+    const DEFAULT_PROMOS = [
+      {
+        id: 'promo-2osh',
+        badge: 'ASOSIY AKSIYA 🔥',
+        title: '2 ta Osh oling — Non va Choy Bepul!',
+        desc: 'Savatga 2 ta osh qo‘shilganda Non (3 500 so‘m) va Choy (2 000 so‘m) avtomatik 0 so‘m bo‘ladi.',
+        image: generateFoodArt('plov', '2 ta Osh = Non + Choy 0 so‘m', 'Avtomatik aksiya')
+      },
+      {
+        id: 'promo-dastavka',
+        badge: 'BEPUL DASTAVKA',
+        title: '100 000 so‘mdan yuqori buyurtmalarga yetkazish 0 so‘m',
+        desc: 'Shaharning barcha hududlariga issiq termokonteynerlarda tezkor yetkazib beramiz.',
+        image: generateFoodArt('kabob', 'Tezkor Dastavka', '100 000 so‘mdan bepul')
+      },
+      {
+        id: 'promo-dasturxon',
+        badge: 'OILAVIY DASTURXON',
+        title: 'Qozon kabob, Manti va Somsa bilan bayramona dasturxon',
+        desc: 'Oila va do‘stlar davrasi uchun eng sara milliy taomlar.',
+        image: generateFoodArt('somsa', 'Oilaviy Dasturxon', 'Issiq va mazali')
+      }
+    ];
+
+    const DEFAULT_SETTINGS = {
+      deliveryPhone: '+998 90 123 45 67',
+      telegramUsername: 'milliy_olov_uz',
+      oshPromoActive: true
+    };
+
+    const REVIEWS_LIST = [
+      {
+        name: 'Azizbek Karimov',
+        city: 'Toshkent sh.',
+        initials: 'AK',
+        ring: '#f5b82e',
+        text: 'O‘zbek palovi va To‘y oshi juda mazali! 2 ta osh buyurtma qilganimizda Non va Choy avtomatik 0 so‘m hisoblandi.'
+      },
+      {
+        name: 'Madina Rasulova',
+        city: 'Chilonzor tumani',
+        initials: 'MR',
+        ring: '#ff3b1f',
+        text: 'Qozon kabob va somsa xuddi o‘choq boshidan yangi kelgandek issiq. Telegram orqali buyurtma yuborish ham juda qulay.'
+      },
+      {
+        name: 'Javohir Tursunov',
+        city: 'Yunusobod tumani',
+        initials: 'JT',
+        ring: '#ffd166',
+        text: 'Shashlik, lag‘mon va norin doim yangi va sifatli. Dastavka xizmati tez ishlaydi.'
+      }
+    ];
+
+    /* =====================================================================
+       HOLAT (STATE) VA LOCALSTORAGE
+       ===================================================================== */
+    function loadSaved(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(fallback));
+      } catch {
+        return JSON.parse(JSON.stringify(fallback));
+      }
+    }
+
+    let dishes = loadSaved(STORE_KEYS.MENU, DEFAULT_MENU);
+    let promos = loadSaved(STORE_KEYS.PROMOS, DEFAULT_PROMOS);
+    let settings = loadSaved(STORE_KEYS.SETTINGS, DEFAULT_SETTINGS);
+    let orders = loadSaved(STORE_KEYS.ORDERS, []);
+    let cart = loadSaved(STORE_KEYS.CART, []);
+
+    let activeCat = 'Barchasi';
+    let searchQuery = '';
+    let fulfillmentMode = 'delivery'; // 'delivery' | 'pickup'
+    let latestReceipt = '';
+    let latestTelegramLink = 'https://t.me/share/url';
+
+    function persistState() {
+      try {
+        localStorage.setItem(STORE_KEYS.MENU, JSON.stringify(dishes));
+        localStorage.setItem(STORE_KEYS.PROMOS, JSON.stringify(promos));
+        localStorage.setItem(STORE_KEYS.SETTINGS, JSON.stringify(settings));
+        localStorage.setItem(STORE_KEYS.ORDERS, JSON.stringify(orders));
+        localStorage.setItem(STORE_KEYS.CART, JSON.stringify(cart));
+      } catch (e) {
+        console.error('LocalStorage xatosi:', e);
+      }
+    }
+
+    function formatSom(num) {
+      return `${Number(num || 0).toLocaleString('ru-RU').replace(/,/g, ' ')} so‘m`;
+    }
+
+    function notifyToast(msg, isPromo = false) {
+      const stack = document.getElementById('toast-stack');
+      const item = document.createElement('div');
+      item.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-2xl border text-white shadow-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+        isPromo
+          ? 'bg-gradient-to-r from-[#7f1d1d] to-[#1a1412] border-[#ffd166]'
+          : 'bg-[#1a1412] border-[#f5b82e]/40'
+      }`;
+      item.innerHTML = `<span>${isPromo ? '🔥' : '✅'}</span><span>${msg}</span>`;
+      stack.appendChild(item);
+      setTimeout(() => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(8px)';
+        setTimeout(() => item.remove(), 280);
+      }, 2800);
+    }
+
+    /* =====================================================================
+       AVTOMATIK AKSIYA: 2 TA OSH OLING — NON VA CHOY BEPUL (0 SO'M)
+       ===================================================================== */
+    function getOshCountInCart() {
+      return cart.reduce((sum, entry) => {
+        const dish = dishes.find(d => d.id === entry.id);
+        if (dish && (dish.isOsh || dish.category === 'Osh')) {
+          return sum + entry.qty;
+        }
+        return sum;
+      }, 0);
+    }
+
+    function syncPromoNonAndChoyInCart() {
+      if (!settings.oshPromoActive) return;
+      if (getOshCountInCart() < 2) return;
+
+      const bread = dishes.find(d => d.kind === 'bread' || d.name.toLowerCase() === 'non');
+      const tea = dishes.find(d => d.kind === 'tea' || d.name.toLowerCase() === 'choy');
+
+      if (bread && !cart.some(c => c.id === bread.id)) {
+        cart.push({ id: bread.id, qty: 1 });
+      }
+      if (tea && !cart.some(c => c.id === tea.id)) {
+        cart.push({ id: tea.id, qty: 1 });
+      }
+    }
+
+    function computeCartTotals() {
+      let subtotal = 0;
+      let promoDiscount = 0;
+
+      const oshCount = getOshCountInCart();
+      const promoActiveNow = Boolean(settings.oshPromoActive && oshCount >= 2);
+
+      let freeBreadUnits = promoActiveNow ? 1 : 0;
+      let freeTeaUnits = promoActiveNow ? 1 : 0;
+
+      const lines = cart
+        .map(entry => {
+          const dish = dishes.find(d => d.id === entry.id);
+          if (!dish) return null;
+
+          const rawLineTotal = dish.price * entry.qty;
+          subtotal += rawLineTotal;
+
+          let freeUnits = 0;
+          let lineDiscount = 0;
+
+          const isBreadItem = dish.kind === 'bread' || dish.name.toLowerCase() === 'non';
+          const isTeaItem = dish.kind === 'tea' || dish.name.toLowerCase() === 'choy';
+
+          if (isBreadItem && freeBreadUnits > 0) {
+            freeUnits = Math.min(entry.qty, freeBreadUnits);
+            lineDiscount = freeUnits * dish.price;
+            freeBreadUnits -= freeUnits;
+          } else if (isTeaItem && freeTeaUnits > 0) {
+            freeUnits = Math.min(entry.qty, freeTeaUnits);
+            lineDiscount = freeUnits * dish.price;
+            freeTeaUnits -= freeUnits;
+          }
+
+          promoDiscount += lineDiscount;
+
+          return {
+            ...dish,
+            qty: entry.qty,
+            freeUnits,
+            rawLineTotal,
+            finalLineTotal: rawLineTotal - lineDiscount
+          };
+        })
+        .filter(Boolean);
+
+      const discountedSubtotal = Math.max(0, subtotal - promoDiscount);
+      const deliveryFee = fulfillmentMode === 'delivery' && discountedSubtotal > 0 && discountedSubtotal < 100000 ? 15000 : 0;
+      const grandTotal = discountedSubtotal + deliveryFee;
+
+      return {
+        lines,
+        oshCount,
+        promoActiveNow,
+        subtotal,
+        promoDiscount,
+        deliveryFee,
+        grandTotal
+      };
+    }
+
+    /* =====================================================================
+       SAVAT AMALLARI
+       ===================================================================== */
+    function addDishToCart(dishId) {
+      const dish = dishes.find(d => d.id === dishId);
+      if (!dish) return;
+
+      const found = cart.find(c => c.id === dishId);
+      if (found) {
+        found.qty += 1;
+      } else {
+        cart.push({ id: dishId, qty: 1 });
+      }
+
+      syncPromoNonAndChoyInCart();
+      const totals = computeCartTotals();
+
+      if (totals.promoActiveNow && (dish.isOsh || dish.category === 'Osh')) {
+        notifyToast('2 ta osh qo‘shildi — Non va Choy 0 so‘m hisoblandi!', true);
+      } else {
+        notifyToast(`"${dish.name}" savatga qo‘shildi`);
+      }
+
+      persistState();
+      renderPage();
+    }
+
+    function changeCartQty(dishId, delta) {
+      const idx = cart.findIndex(c => c.id === dishId);
+      if (idx === -1) return;
+
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      } else {
+        syncPromoNonAndChoyInCart();
+      }
+
+      persistState();
+      renderPage();
+    }
+
+    function removeDishFromCart(dishId) {
+      cart = cart.filter(c => c.id !== dishId);
+      persistState();
+      renderPage();
+    }
+
+    function addTwoOshPromoBundle() {
+      const oshDish = dishes.find(d => d.id === 'dish-ozbek-palovi') || dishes.find(d => d.isOsh || d.category === 'Osh');
+      if (!oshDish) return;
+
+      const existing = cart.find(c => c.id === oshDish.id);
+      if (!existing) {
+        cart.push({ id: oshDish.id, qty: 2 });
+      } else if (existing.qty < 2) {
+        existing.qty = 2;
+      }
+
+      syncPromoNonAndChoyInCart();
+      persistState();
+      renderPage();
+      openCartDrawer();
+      notifyToast('2 ta Osh + Bepul Non va Choy savatga qo‘shildi!', true);
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cart-overlay').classList.remove('hidden');
+      document.getElementById('cart-drawer').classList.remove('translate-x-full');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cart-overlay').classList.add('hidden');
+      document.getElementById('cart-drawer').classList.add('translate-x-full');
+    }
+
+    function selectOrderFulfillment(mode) {
+      fulfillmentMode = mode;
+      const dBtn = document.getElementById('fulfillment-delivery-btn');
+      const pBtn = document.getElementById('fulfillment-pickup-btn');
+      const addrGroup = document.getElementById('order-address-field');
+
+      if (mode === 'delivery') {
+        dBtn.className = 'py-2 rounded-lg text-xs font-extrabold bg-[#e11d2b] text-white cursor-pointer';
+        pBtn.className = 'py-2 rounded-lg text-xs font-extrabold text-stone-400 hover:text-white cursor-pointer';
+        addrGroup.classList.remove('hidden');
+      } else {
+        pBtn.className = 'py-2 rounded-lg text-xs font-extrabold bg-[#e11d2b] text-white cursor-pointer';
+        dBtn.className = 'py-2 rounded-lg text-xs font-extrabold text-stone-400 hover:text-white cursor-pointer';
+        addrGroup.classList.add('hidden');
+      }
+
+      renderCartDrawer();
+    }
+
+    /* =====================================================================
+       BUYURTMANI RASMIYLASHTIRISH VA TELEGRAM
+       ===================================================================== */
+    function submitCartOrder(ev, channel) {
+      if (ev) ev.preventDefault();
+
+      const nameInput = document.getElementById('order-customer-name');
+      const phoneInput = document.getElementById('order-customer-phone');
+      const addrInput = document.getElementById('order-customer-address');
+
+      const customerName = nameInput.value.trim();
+      const customerPhone = phoneInput.value.trim();
+      const address = addrInput.value.trim();
+      const paymentMethod = document.querySelector('input[name="cartPaymentMethod"]:checked')?.value || 'Naqd pul';
+
+      if (!customerName) {
+        notifyToast('Iltimos, ismingizni kiriting');
+        nameInput.focus();
+        return;
+      }
+      if (!customerPhone) {
+        notifyToast('Iltimos, telefon raqamingizni kiriting');
+        phoneInput.focus();
+        return;
+      }
+      if (fulfillmentMode === 'delivery' && !address) {
+        notifyToast('Iltimos, yetkazib berish manzilini kiriting');
+        addrInput.focus();
+        return;
+      }
+
+      const totals = computeCartTotals();
+      if (totals.lines.length === 0) return;
+
+      const orderId = `MO-${Math.floor(1000 + Math.random() * 9000)}`;
+      const newOrder = {
+        id: orderId,
+        createdAt: new Date().toLocaleString('uz-UZ'),
+        customerName,
+        customerPhone,
+        fulfillment: fulfillmentMode === 'delivery' ? 'Yetkazib berish' : 'Olib ketish',
+        address: fulfillmentMode === 'delivery' ? address : 'Restorandan olib ketish',
+        paymentMethod,
+        items: totals.lines.map(l => ({
+          name: l.name,
+          qty: l.qty,
+          finalPrice: l.finalLineTotal
+        })),
+        promoDiscount: totals.promoDiscount,
+        total: totals.grandTotal,
+        status: 'Yangi'
+      };
+
+      orders.unshift(newOrder);
+
+      const linesText = totals.lines
+        .map(l => `• ${l.name} x${l.qty} — ${l.finalLineTotal === 0 ? '0 so‘m (BEPUL)' : formatSom(l.finalLineTotal)}`)
+        .join('\n');
+
+      latestReceipt = [
+        `🔥 MILLIY OLOV — BUYURTMA #${orderId}`,
+        `👤 Mijoz: ${customerName}`,
+        `📞 Tel: ${customerPhone}`,
+        `🚚 Turi: ${newOrder.fulfillment}`,
+        fulfillmentMode === 'delivery' ? `📍 Manzil: ${address}` : null,
+        `💳 To‘lov: ${paymentMethod}`,
+        '',
+        '🍽 Buyurtma tarkibi:',
+        linesText,
+        totals.promoDiscount > 0 ? `🎁 Aksiya tejamkorligi: -${formatSom(totals.promoDiscount)}` : null,
+        `💰 JAMI TO‘LOV: ${formatSom(totals.grandTotal)}`
+      ]
+        .filter(Boolean)
+        .join('\n');
+
+      const tgUser = (settings.telegramUsername || 'milliy_olov_uz').replace(/^@/, '');
+      latestTelegramLink = `https://t.me/share/url?url=${encodeURIComponent(`https://t.me/${tgUser}`)}&text=${encodeURIComponent(latestReceipt)}`;
+
+      cart = [];
+      persistState();
+      renderPage();
+      closeCartDrawer();
+
+      document.getElementById('receipt-subtitle').textContent = `Buyurtma #${orderId} qabul qilindi va saqlandi.`;
+      document.getElementById('receipt-text-box').textContent = latestReceipt;
+      document.getElementById('receipt-telegram-btn').href = latestTelegramLink;
+
+      const modal = document.getElementById('order-receipt-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      if (channel === 'telegram') {
+        window.open(latestTelegramLink, '_blank', 'noopener,noreferrer');
+      }
+    }
+
+    function copyReceiptText() {
+      if (!latestReceipt) return;
+      const helper = document.createElement('textarea');
+      helper.value = latestReceipt;
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand('copy');
+      document.body.removeChild(helper);
+      notifyToast('Buyurtma matni nusxalandi!');
+    }
+
+    function closeReceiptModal() {
+      const modal = document.getElementById('order-receipt-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleContactMessage(e) {
+      e.preventDefault();
+      e.target.reset();
+      notifyToast('Xabaringiz yuborildi! Tez orada bog‘lanamiz.');
+    }
+
+    /* =====================================================================
+       RENDER FUNKSIYALARI
+       ===================================================================== */
+    function renderDishCard(dish) {
+      const inCart = cart.find(c => c.id === dish.id);
+      const qty = inCart ? inCart.qty : 0;
+
+      return `
+        <div class="food-card rounded-3xl overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="relative h-48 bg-[#0a0807] overflow-hidden">
+              <img
+                src="${dish.image}"
+                alt="${dish.name}"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1a1412] via-transparent to-black/25"></div>
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-lg bg-[#0a0807]/85 text-[#ffd166] text-[11px] font-bold border border-[#f5b82e]/30">
+                  ${dish.category}
+                </span>
+                ${
+                  dish.bestseller
+                    ? `<span class="px-2.5 py-1 rounded-lg bg-[#e11d2b] text-white text-[11px] font-extrabold">🔥 Xit</span>`
+                    : ''
+                }
+              </div>
+            </div>
+
+            <div class="p-5 pb-2">
+              <h3 class="text-lg font-extrabold text-white">${dish.name}</h3>
+              <p class="text-xs text-stone-400 mt-1.5 leading-relaxed">${dish.description || ''}</p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-3 flex items-center justify-between gap-2">
+            <div>
+              <span class="text-[11px] text-stone-500 block">Narxi:</span>
+              <span class="text-base sm:text-lg font-extrabold text-[#ffd166]">${formatSom(dish.price)}</span>
+            </div>
+
+            ${
+              qty === 0
+                ? `
+              <button
+                type="button"
+                onclick="addDishToCart('${dish.id}')"
+                class="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-[#e11d2b] to-[#991b1b] hover:from-[#ff3b1f] hover:to-[#b91c1c] text-white font-bold text-xs cursor-pointer transition-all flex items-center gap-1.5"
+              >
+                <i class="fa-solid fa-plus"></i>
+                <span>Savatga qo‘shish</span>
+              </button>
+            `
+                : `
+              <div class="flex items-center gap-1.5 bg-[#0a0807] border border-[#ffd166]/50 rounded-xl p-1">
+                <button type="button" onclick="changeCartQty('${dish.id}', -1)" class="w-7 h-7 rounded-lg bg-[#1a1412] hover:bg-[#e11d2b] text-white font-bold text-xs cursor-pointer">-</button>
+                <span class="w-6 text-center font-extrabold text-xs sm:text-sm text-[#ffd166]">${qty}</span>
+                <button type="button" onclick="changeCartQty('${dish.id}', 1)" class="w-7 h-7 rounded-lg bg-[#1a1412] hover:bg-[#f5b82e] hover:text-[#0a0807] text-white font-bold text-xs cursor-pointer">+</button>
+              </div>
+            `
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCategoryTabs() {
+      const mainDishes = dishes.filter(d => !d.isSide);
+      const cats = ['Barchasi', ...new Set(mainDishes.map(d => d.category))];
+      const bar = document.getElementById('category-tabs-bar');
+
+      bar.innerHTML = cats
+        .map(cat => {
+          const isSelected = activeCat === cat;
+          return `
+            <button
+              type="button"
+              onclick="selectCategoryTab('${cat.replace(/'/g, "\\'")}')"
+              class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
+                isSelected
+                  ? 'bg-gradient-to-r from-[#f5b82e] to-[#d99b16] text-[#0a0807]'
+                  : 'bg-[#1a1412] text-stone-300 hover:text-white border border-white/10 hover:border-[#f5b82e]/40'
+              }"
+            >
+              ${cat}
+            </button>
+          `;
+        })
+        .join('');
+    }
+
+    function selectCategoryTab(cat) {
+      activeCat = cat;
+      renderCategoryTabs();
+      renderMenuSections();
+    }
+
+    function handleSearchQuery(val) {
+      searchQuery = val.trim().toLowerCase();
+      document.getElementById('menu-search-clear').classList.toggle('hidden', !searchQuery);
+      renderMenuSections();
+    }
+
+    function clearSearchFilter() {
+      searchQuery = '';
+      activeCat = 'Barchasi';
+      const input = document.getElementById('menu-search-input');
+      if (input) input.value = '';
+      document.getElementById('menu-search-clear').classList.add('hidden');
+      renderCategoryTabs();
+      renderMenuSections();
+    }
+
+    function renderBestsellers() {
+      const topDishes = dishes.filter(d => d.bestseller && !d.isSide).slice(0, 4);
+      document.getElementById('bestsellers-container').innerHTML = topDishes.map(renderDishCard).join('');
+    }
+
+    function renderMenuSections() {
+      const mainDishes = dishes.filter(d => !d.isSide);
+      const filtered = mainDishes.filter(d => {
+        const matchCat = activeCat === 'Barchasi' || d.category === activeCat;
+        const matchText =
+          !searchQuery ||
+          d.name.toLowerCase().includes(searchQuery) ||
+          d.category.toLowerCase().includes(searchQuery) ||
+          (d.description && d.description.toLowerCase().includes(searchQuery));
+        return matchCat && matchText;
+      });
+
+      const grid = document.getElementById('main-menu-container');
+      const emptyBox = document.getElementById('empty-search-state');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyBox.classList.remove('hidden');
+      } else {
+        emptyBox.classList.add('hidden');
+        grid.innerHTML = filtered.map(renderDishCard).join('');
+      }
+
+      const sides = dishes.filter(d => d.isSide || d.category === 'Non va choy');
+      document.getElementById('non-choy-container').innerHTML = sides.map(renderDishCard).join('');
+    }
+
+    function renderPromos() {
+      document.getElementById('promos-container').innerHTML = promos
+        .map(
+          p => `
+          <div class="bg-[#1a1412] rounded-3xl overflow-hidden border border-[#f5b82e]/25 hover:border-[#ffd166]/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-[#0a0807] overflow-hidden">
+                <img src="${p.image || generateFoodArt('plov', p.title, p.badge)}" alt="${p.title}" class="w-full h-full object-cover" />
+              </div>
+              <div class="p-6">
+                <span class="inline-block px-3 py-1 rounded-full bg-[#e11d2b]/20 text-[#ff3b1f] border border-[#ff3b1f]/35 text-[11px] font-extrabold mb-3">
+                  ${p.badge}
+                </span>
+                <h3 class="text-xl font-extrabold text-white">${p.title}</h3>
+                <p class="text-xs sm:text-sm text-stone-400 mt-2 leading-relaxed">${p.desc}</p>
+              </div>
+            </div>
+            <div class="px-6 pb-6">
+              <a href="#menyu" class="text-xs font-extrabold text-[#f5b82e] hover:text-[#ffd166] inline-flex items-center gap-1.5">
+                <span>Menyuga o‘tish</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    function renderReviews() {
+      document.getElementById('testimonials-container').innerHTML = REVIEWS_LIST.map(
+        r => `
+        <div class="bg-[#1a1412] rounded-3xl p-6 border border-white/10 space-y-4">
+          <div class="flex items-center gap-1 text-[#ffd166] text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">“${r.text}”</p>
+          <div class="flex items-center gap-3 pt-2 border-t border-white/5">
+            <img src="${generateReviewerAvatar(r.initials, r.ring)}" alt="${r.name}" class="w-11 h-11 rounded-full shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">${r.name}</h4>
+              <p class="text-[11px] text-stone-400">${r.city}</p>
+            </div>
+          </div>
+        </div>
+      `
+      ).join('');
+    }
+
+    function syncContactAndPromoDisplays() {
+      const phone = settings.deliveryPhone || '+998 90 123 45 67';
+      const telLink = `tel:${phone.replace(/[^+\d]/g, '')}`;
+      const tg = (settings.telegramUsername || 'milliy_olov_uz').replace(/^@/, '');
+
+      document.getElementById('topbar-phone-text').textContent = phone;
+      document.getElementById('topbar-phone-link').href = telLink;
+      document.getElementById('delivery-phone-display').textContent = phone;
+      document.getElementById('delivery-phone-link').href = telLink;
+      document.getElementById('footer-phone-display').textContent = phone;
+      document.getElementById('footer-phone-link').href = telLink;
+      document.getElementById('footer-tg-handle').textContent = `@${tg}`;
+      document.getElementById('footer-tg-link').href = `https://t.me/${tg}`;
+
+      const pill = document.getElementById('hero-promo-status-pill');
+      const topText = document.getElementById('topbar-promo-text');
+
+      if (settings.oshPromoActive) {
+        pill.className = 'text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30';
+        pill.textContent = '● Avtomatik ishlaydi';
+        topText.textContent = '🔥 2 TA OSH OLING — NON VA CHOY BEPUL! (Avtomatik 0 so‘m)';
+      } else {
+        pill.className = 'text-xs font-bold px-3 py-1 rounded-full bg-stone-700/30 text-stone-400 border border-stone-600/30';
+        pill.textContent = '○ O‘chirilgan';
+        topText.textContent = '🔥 MILLIY OLOV — Issiq milliy taomlar va tezkor dastavka';
+      }
+    }
+
+    function renderCartDrawer() {
+      const totals = computeCartTotals();
+      const countSum = cart.reduce((acc, c) => acc + c.qty, 0);
+      document.getElementById('header-cart-badge').textContent = countSum;
+
+      const promoBanner = document.getElementById('cart-promo-banner');
+      if (!settings.oshPromoActive) {
+        promoBanner.innerHTML = `<span class="text-stone-400">2 ta Osh aksiyasi hozircha faol emas.</span>`;
+      } else if (totals.promoActiveNow) {
+        promoBanner.innerHTML = `
+          <div class="flex items-center justify-between text-emerald-400 font-bold">
+            <span>🎉 Aksiya faol: Non va Choy 0 so‘m!</span>
+            <span>-${formatSom(totals.promoDiscount)}</span>
+          </div>
+        `;
+      } else if (totals.oshCount === 1) {
+        promoBanner.innerHTML = `
+          <div class="flex items-center justify-between text-[#ffd166] font-semibold">
+            <span>🔥 Yana 1 ta Osh qo‘shsangiz — Non va Choy bepul!</span>
+            <button type="button" onclick="addTwoOshPromoBundle()" class="underline font-extrabold text-white cursor-pointer">+1 Osh</button>
+          </div>
+        `;
+      } else {
+        promoBanner.innerHTML = `<span class="text-stone-200">💡 <strong>2 ta Osh</strong> qo‘shing — <strong>Non va Choy 0 so‘m!</strong></span>`;
+      }
+
+      const listEl = document.getElementById('cart-items-container');
+      const formEl = document.getElementById('checkout-order-form');
+      const footerEl = document.getElementById('cart-footer-summary');
+
+      if (totals.lines.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-12 space-y-2">
+            <div class="text-4xl">🛒</div>
+            <p class="text-sm font-bold text-white">Savat bo‘sh</p>
+            <p class="text-xs text-stone-400">Menyudan taom tanlab savatga qo‘shing.</p>
+          </div>
+        `;
+        formEl.classList.add('hidden');
+        footerEl.classList.add('hidden');
+        return;
+      }
+
+      formEl.classList.remove('hidden');
+      footerEl.classList.remove('hidden');
+
+      listEl.innerHTML = totals.lines
+        .map(line => {
+          const freeTag =
+            line.freeUnits > 0
+              ? `<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-extrabold">0 SO‘M (${line.freeUnits}x)</span>`
+              : '';
+
+          const priceHtml =
+            line.finalLineTotal === 0
+              ? `<span class="text-emerald-400 font-extrabold">0 so‘m</span> <span class="text-stone-500 line-through ml-1">${formatSom(line.rawLineTotal)}</span>`
+              : `<span class="text-[#ffd166] font-bold">${formatSom(line.finalLineTotal)}</span>`;
+
+          return `
+            <div class="bg-[#0a0807] p-3.5 rounded-2xl border ${line.freeUnits > 0 ? 'border-emerald-500/40' : 'border-white/10'} flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <img src="${line.image}" alt="${line.name}" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <h5 class="text-sm font-bold text-white truncate">${line.name}</h5>
+                    ${freeTag}
+                  </div>
+                  <div class="text-xs mt-0.5">${priceHtml}</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-1 shrink-0">
+                <button type="button" onclick="changeCartQty('${line.id}', -1)" class="w-7 h-7 rounded-lg bg-[#1a1412] hover:bg-[#e11d2b] text-white font-bold text-xs cursor-pointer">-</button>
+                <span class="w-6 text-center text-xs font-extrabold text-white">${line.qty}</span>
+                <button type="button" onclick="changeCartQty('${line.id}', 1)" class="w-7 h-7 rounded-lg bg-[#1a1412] hover:bg-[#f5b82e] hover:text-[#0a0807] text-white font-bold text-xs cursor-pointer">+</button>
+                <button type="button" onclick="removeDishFromCart('${line.id}')" class="ml-1 text-stone-500 hover:text-[#ff3b1f] p-1 cursor-pointer" title="O‘chirish">
+                  <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+              </div>
+            </div>
+          `;
+        })
+        .join('');
+
+      document.getElementById('cart-subtotal-amount').textContent = formatSom(totals.subtotal);
+
+      const discRow = document.getElementById('cart-promo-discount-row');
+      if (totals.promoDiscount > 0) {
+        discRow.classList.remove('hidden');
+        document.getElementById('cart-promo-discount-amount').textContent = `-${formatSom(totals.promoDiscount)}`;
+      } else {
+        discRow.classList.add('hidden');
+      }
+
+      document.getElementById('cart-delivery-amount').textContent =
+        fulfillmentMode === 'pickup' ? 'Olib ketish (0 so‘m)' : totals.deliveryFee === 0 ? 'Bepul (0 so‘m)' : formatSom(totals.deliveryFee);
+
+      document.getElementById('cart-grand-total').textContent = formatSom(totals.grandTotal);
+    }
+
+    /* =====================================================================
+       ADMIN PANEL FUNKSIYALARI
+       ===================================================================== */
+    function openAdminModal() {
+      const modal = document.getElementById('admin-panel-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      renderAdminPanel();
+    }
+
+    function closeAdminModal() {
+      const modal = document.getElementById('admin-panel-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function switchAdminSection(sec) {
+      ['dishes', 'orders', 'promos'].forEach(key => {
+        document.getElementById(`admin-section-${key}`).classList.toggle('hidden', key !== sec);
+        const btn = document.getElementById(`admin-tab-${key}`);
+        if (key === sec) {
+          btn.className = 'px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-[#ffd166] text-[#ffd166] whitespace-nowrap cursor-pointer';
+        } else {
+          btn.className = 'px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-transparent text-stone-400 hover:text-white whitespace-nowrap cursor-pointer';
+        }
+      });
+    }
+
+    function renderAdminPanel() {
+      document.getElementById('admin-order-count-badge').textContent = orders.length;
+
+      // 1. Taomlar ro'yxati
+      document.getElementById('admin-dishes-list').innerHTML = dishes
+        .map(
+          d => `
+          <div class="bg-[#0a0807] p-4 rounded-2xl border border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
+            <div class="lg:col-span-3 flex items-center gap-3">
+              <img src="${d.image}" alt="${d.name}" class="w-12 h-12 rounded-xl object-cover shrink-0" />
+              <div>
+                <p class="text-sm font-bold text-white">${d.name}</p>
+                <p class="text-[11px] text-[#f5b82e]">${d.category}${d.isOsh ? ' • Osh' : ''}</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-2">
+              <label class="text-[10px] text-stone-400 block mb-0.5">Narxi (so‘m)</label>
+              <input
+                type="number"
+                step="500"
+                min="0"
+                value="${d.price}"
+                onchange="adminUpdateDishField('${d.id}', 'price', Number(this.value))"
+                class="w-full px-2.5 py-1.5 rounded-lg bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none"
+              />
+            </div>
+
+            <div class="lg:col-span-4 grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] text-stone-400 block mb-0.5">Rasm shabloni</label>
+                <select
+                  onchange="adminSwapPresetArt('${d.id}', this.value)"
+                  class="w-full px-2 py-1.5 rounded-lg bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none"
+                >
+                  ${ART_KEYS.map(k => `<option value="${k}" ${d.artType === k ? 'selected' : ''}>${k.toUpperCase()}</option>`).join('')}
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] text-stone-400 block mb-0.5">Rasm URL</label>
+                <input
+                  type="text"
+                  value="${d.image.startsWith('data:image/svg+xml') ? '' : d.image}"
+                  placeholder="https://... yoki SVG"
+                  onchange="adminUpdateDishField('${d.id}', 'image', this.value)"
+                  class="w-full px-2.5 py-1.5 rounded-lg bg-[#1a1412] border border-white/15 text-xs text-white focus:border-[#ffd166] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div class="lg:col-span-3 flex items-center justify-end gap-2 pt-2 lg:pt-0">
+              <label class="px-2.5 py-1.5 rounded-lg bg-[#1a1412] hover:bg-[#f5b82e]/20 text-[#ffd166] border border-[#f5b82e]/35 text-[11px] font-bold cursor-pointer">
+                <i class="fa-solid fa-upload mr-1"></i>Fayl
+                <input type="file" accept="image/*" onchange="adminUploadDishFile(event, '${d.id}')" class="hidden" />
+              </label>
+              <button
+                type="button"
+                onclick="adminToggleDishBest('${d.id}')"
+                class="px-2.5 py-1.5 rounded-lg text-[11px] font-bold border cursor-pointer ${
+                  d.bestseller ? 'bg-[#f5b82e] text-[#0a0807] border-[#f5b82e]' : 'bg-[#1a1412] text-stone-400 border-white/10'
+                }"
+              >
+                ★ Xit
+              </button>
+              <button
+                type="button"
+                onclick="adminRemoveDishItem('${d.id}')"
+                class="px-2.5 py-1.5 rounded-lg bg-[#e11d2b]/20 hover:bg-[#e11d2b] text-[#ff3b1f] hover:text-white text-xs font-bold cursor-pointer"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        `
+        )
+        .join('');
+
+      // 2. Buyurtmalar ro'yxati
+      const orderStatuses = ['Yangi', 'Tayyorlanmoqda', 'Yetkazilmoqda', 'Yakunlandi'];
+      const ordersBox = document.getElementById('admin-orders-list');
+
+      if (orders.length === 0) {
+        ordersBox.innerHTML = `<div class="text-center py-10 bg-[#0a0807] rounded-2xl border border-white/10 text-sm text-stone-400">Hozircha buyurtmalar mavjud emas.</div>`;
+      } else {
+        ordersBox.innerHTML = orders
+          .map(
+            ord => `
+            <div class="bg-[#0a0807] p-4 sm:p-5 rounded-2xl border border-[#f5b82e]/25 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10">
+                <div>
+                  <span class="text-sm font-extrabold text-[#ffd166]">#${ord.id}</span>
+                  <span class="text-xs text-stone-400 ml-2">${ord.createdAt}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-stone-400">Holat:</span>
+                  <select
+                    onchange="adminSetOrderStatus('${ord.id}', this.value)"
+                    class="px-3 py-1.5 rounded-xl bg-[#1a1412] border border-[#f5b82e]/40 text-xs font-bold text-white focus:outline-none"
+                  >
+                    ${orderStatuses.map(st => `<option value="${st}" ${ord.status === st ? 'selected' : ''}>${st}</option>`).join('')}
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-3 text-xs text-stone-300">
+                <div class="space-y-1">
+                  <p><strong class="text-white">Mijoz:</strong> ${ord.customerName} (${ord.customerPhone})</p>
+                  <p><strong class="text-white">Turi:</strong> ${ord.fulfillment} — ${ord.address}</p>
+                  <p><strong class="text-white">To‘lov:</strong> ${ord.paymentMethod}</p>
+                </div>
+                <div class="bg-[#1a1412] p-3 rounded-xl space-y-1">
+                  ${ord.items.map(i => `<div class="flex justify-between"><span>${i.name} x${i.qty}</span><span class="text-[#ffd166]">${formatSom(i.finalPrice)}</span></div>`).join('')}
+                  <div class="border-t border-white/10 pt-1 mt-1 flex justify-between font-extrabold text-white">
+                    <span>Jami:</span>
+                    <span class="text-[#f5b82e]">${formatSom(ord.total)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      // 3. Dastavka va Aksiyalar
+      document.getElementById('admin-phone-input').value = settings.deliveryPhone;
+      document.getElementById('admin-telegram-input').value = settings.telegramUsername;
+      document.getElementById('admin-osh-promo-switch').checked = Boolean(settings.oshPromoActive);
+
+      document.getElementById('admin-promos-list').innerHTML = promos
+        .map(
+          p => `
+          <div class="bg-[#1a1412] p-4 rounded-xl border border-white/10 flex items-start justify-between gap-3">
+            <div>
+              <span class="text-[10px] font-extrabold text-[#ff3b1f] uppercase">${p.badge}</span>
+              <h5 class="text-sm font-bold text-white">${p.title}</h5>
+              <p class="text-xs text-stone-400 mt-1">${p.desc}</p>
+            </div>
+            <button type="button" onclick="adminRemovePromo('${p.id}')" class="text-stone-400 hover:text-[#ff3b1f] p-1 cursor-pointer">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    function adminCreateDish(e) {
+      e.preventDefault();
+      const name = document.getElementById('new-dish-name').value.trim();
+      const category = document.getElementById('new-dish-category').value;
+      const price = Number(document.getElementById('new-dish-price').value);
+      const artType = document.getElementById('new-dish-preset-art').value;
+      const isOsh = Boolean(document.getElementById('new-dish-is-osh').checked) || category === 'Osh';
+
+      if (!name || Number.isNaN(price) || price < 0) return;
+
+      dishes.unshift({
+        id: `dish-${Date.now()}`,
+        name,
+        category,
+        isOsh,
+        isSide: category === 'Non va choy',
+        artType,
+        price,
+        bestseller: false,
+        description: `${name} — MILLIY OLOV oshpazlaridan maxsus milliy taom.`,
+        image: generateFoodArt(artType, name, category)
+      });
+
+      e.target.reset();
+      persistState();
+      renderPage();
+      renderAdminPanel();
+      notifyToast(`"${name}" menyuga qo‘shildi`);
+    }
+
+    function adminUpdateDishField(id, field, val) {
+      const dish = dishes.find(d => d.id === id);
+      if (!dish) return;
+      if (field === 'price' && (Number.isNaN(val) || val < 0)) return;
+      if (field === 'image') {
+        dish.image = val.trim() ? val.trim() : generateFoodArt(dish.artType || 'plov', dish.name, dish.category);
+      } else {
+        dish[field] = val;
+      }
+      persistState();
+      renderPage();
+      notifyToast(`"${dish.name}" yangilandi`);
+    }
+
+    function adminSwapPresetArt(id, newArt) {
+      const dish = dishes.find(d => d.id === id);
+      if (!dish) return;
+      dish.artType = newArt;
+      dish.image = generateFoodArt(newArt, dish.name, dish.category);
+      persistState();
+      renderPage();
+      renderAdminPanel();
+      notifyToast(`"${dish.name}" rasmi yangilandi`);
+    }
+
+    function adminUploadDishFile(ev, id) {
+      const file = ev.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        adminUpdateDishField(id, 'image', reader.result);
+        renderAdminPanel();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function adminToggleDishBest(id) {
+      const dish = dishes.find(d => d.id === id);
+      if (!dish) return;
+      dish.bestseller = !dish.bestseller;
+      persistState();
+      renderPage();
+      renderAdminPanel();
+    }
+
+    function adminRemoveDishItem(id) {
+      dishes = dishes.filter(d => d.id !== id);
+      cart = cart.filter(c => c.id !== id);
+      persistState();
+      renderPage();
+      renderAdminPanel();
+      notifyToast('Taom o‘chirildi');
+    }
+
+    function adminSetOrderStatus(orderId, status) {
+      const ord = orders.find(o => o.id === orderId);
+      if (!ord) return;
+      ord.status = status;
+      persistState();
+      notifyToast(`Buyurtma #${orderId} holati: ${status}`);
+    }
+
+    function adminSaveStoreSettings() {
+      const phone = document.getElementById('admin-phone-input').value.trim();
+      const tg = document.getElementById('admin-telegram-input').value.trim().replace(/^@/, '');
+      if (phone) settings.deliveryPhone = phone;
+      if (tg) settings.telegramUsername = tg;
+      persistState();
+      syncContactAndPromoDisplays();
+      notifyToast('Dastavka va Telegram ma’lumotlari saqlandi');
+    }
+
+    function adminToggleOshPromo(active) {
+      settings.oshPromoActive = Boolean(active);
+      if (settings.oshPromoActive) {
+        syncPromoNonAndChoyInCart();
+      }
+      persistState();
+      renderPage();
+      notifyToast(active ? '2 ta Osh aksiyasi yoqildi!' : '2 ta Osh aksiyasi o‘chirildi', active);
+    }
+
+    function adminCreatePromo(e) {
+      e.preventDefault();
+      const badge = document.getElementById('new-promo-badge').value.trim();
+      const title = document.getElementById('new-promo-title').value.trim();
+      const desc = document.getElementById('new-promo-desc').value.trim();
+
+      promos.unshift({
+        id: `promo-${Date.now()}`,
+        badge,
+        title,
+        desc,
+        image: generateFoodArt('plov', title, badge)
+      });
+
+      e.target.reset();
+      persistState();
+      renderPromos();
+      renderAdminPanel();
+      notifyToast('Yangi aksiya qo‘shildi');
+    }
+
+    function adminRemovePromo(id) {
+      promos = promos.filter(p => p.id !== id);
+      persistState();
+      renderPromos();
+      renderAdminPanel();
+    }
+
+    function resetDemoStoreData() {
+      dishes = JSON.parse(JSON.stringify(DEFAULT_MENU));
+      promos = JSON.parse(JSON.stringify(DEFAULT_PROMOS));
+      settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+      cart = [];
+      activeCat = 'Barchasi';
+      searchQuery = '';
+      persistState();
+      renderPage();
+      renderAdminPanel();
+      notifyToast('Standart menyu va sozlamalar tiklandi');
+    }
+
+    /* =====================================================================
+       UMUMIY RENDER VA ISHGA TUSHIRISH
+       ===================================================================== */
+    function renderPage() {
+      renderCategoryTabs();
+      renderBestsellers();
+      renderMenuSections();
+      renderPromos();
+      renderReviews();
+      syncContactAndPromoDisplays();
+      renderCartDrawer();
+      document.getElementById('admin-order-count-badge').textContent = orders.length;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPage();
+    });
+  </script>
+</body>
+</html>
